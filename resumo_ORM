@@ -1,0 +1,125 @@
+python manage.py dbshell
+python manage.py migrate
+python manage.py flush
+python manage.py inspectdb
+
+
+
+
+from django.db.models import Model, CharField, DateTimeField, EmailField, TextField
+
+class Feriados(Model):
+    nome = CharField(max_length=20)
+    motivo = CharField(max_length=100, default='')
+    data = DateTimeField()
+
+
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py sqlflush
+python manage.py sqlsequencereset -h
+
+python manage.py shell
+
+	f1 = Feriados(nome='natal',motivo='nascimento Cristo', data=datetime.datetime(2018,12,25)) 
+	f1.save()
+	f1.id
+	f1.pk -> qual atributo será primary key ?
+
+	f1.motivo = 'nascimento de Jesus Cristo'
+	f1.save()
+
+	
+	f2 = Feriados.objects.get(pk=1)
+	f2.id
+	f2.motivo
+	f2.id = None
+	f2.save()
+
+	f2.id
+
+	Feriados.objects.all() 
+	f2.delete()
+	Feriados.objects.all() 
+
+	f3 = Feriados.objects.create(nome='pascoa',motivo='caça aos coelhos',data=datetime.datetime(2017,4,4))
+	f3.id => já persistido no banco
+
+	f4 = Feriados.objects.get(nome__contains='al') ==> PODE RETORNAR APENAS UM REGISTRO
+	
+	 
+	type(f4)			==> Descreve uma linha na tabela, um registro
+	type(Feriados)			==> Descreve o modelo, a estrutura da tabela
+	type(Feriados.objects)		==> Componente que vai manipular a tabela, interfaceando o modelo ao ORM
+	type(Feriados.objects.all)     ==> QuerySet, o motor do ORM.
+
+
+	qs = Feriado.objets.all()
+	qs
+	len(qs) ==> DADOS CACHEADOS
+
+	qs.update(motivo='festa')
+	qs.all().delete() 
+
+
+
+
+###################################
+cadastro.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Feriados</title>
+</head>
+<body>
+    <form action="/cadastro" method="POST">
+        {% csrf_token %}
+        Nome
+        <br>
+        <input name="nome">
+        <br>
+        Motivo
+        <br>
+        <input name="motivo">
+        <br>
+        Dia:
+        <input name="dia">
+        Mês:
+        <input name="mes">
+        Ano:
+        <input name="ano">
+        <br>
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>
+
+
+###################################
+url.py
+
+    path('cadastro', views.cadastro),
+
+
+###################################
+views.py
+
+def cadastro(request):
+    if request.method == 'POST':
+        print(request.POST['nome'])
+        print(request.POST['motivo'])
+        print(request.POST['dia'])
+        print(request.POST['mes'])
+        print(request.POST['ano'])
+    return render(request, 'cadastro.html')
+
+
+
+
+
+
+
+
