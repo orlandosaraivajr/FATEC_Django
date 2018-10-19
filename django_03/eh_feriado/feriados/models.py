@@ -1,3 +1,6 @@
-from django.db import models
+from django.db.models import Model, CharField, DateTimeField, EmailField, TextField
 
-# Create your models here.
+class Feriados(Model):
+    nome = CharField(max_length=20)
+    motivo = CharField(max_length=100, default='')
+    data = DateTimeField()
