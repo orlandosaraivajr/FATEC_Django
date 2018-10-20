@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agenda</title>
+</head>
+<body>
+	<form action="/" method="POST">
+		{% csrf_token %}
+		<H2>Nome:</H2>
+		<input name="nome" maxlength="100">
+		<H2>Telefone:</H2>
+		<input name="telefone" maxlength="30">
+		<BR>
+		<input type="submit" name="Cadastrar">
+	</form>
+
+	{% if contatos %}
+		{% for contato in contatos %}
+   			 {{ contato.nome }} - {{ contato.telefone }}
+    		</BR></BR>
+		{% endfor %}
+	{% endif %}
+
+</body>
+</html>
