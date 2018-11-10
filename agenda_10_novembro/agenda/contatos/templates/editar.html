@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agenda</title>
+</head>
+<body>
+ 
+  <form action="." novalidate method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Salvar informações"/>
+
+  </form>
+</body>
+</html>

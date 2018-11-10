@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agenda</title>
+</head>
+<body>
+ 	<table >
+                <tr>
+                  <td>Nome</td>
+                  <td>Telefone</td>
+                </tr>
+ 		{% for contato in contatos %}
+                <tr>
+                  <td>
+                      <a href="{% url 'editar' contato.pk %}">
+                        {{ contato.nome }}
+                      </a>
+                  </td>
+                  <td>
+                        <a href="{% url 'editar' contato.pk %}">
+                        {{ contato.telefone }}
+                      </a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </table>
+</body>
+</html>
