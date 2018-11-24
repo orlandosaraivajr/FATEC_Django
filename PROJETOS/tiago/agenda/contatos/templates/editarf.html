@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AgendaPessoal</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--===============================================================================================-->
+		<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+		<!--===============================================================================================-->
+	</head>
+	<body>
+		<div id="navegacao">
+			<div id="area">
+				<a href="{% url 'contatos:raiz' %}" style="background-color: transparent; padding: 0">
+					<h1 id="logo"><span class="azul">Agenda</span><span class="roxo">Pessoal</span></h1>
+				</a>
+				<div id="menu">
+						<a href="{% url 'contatos:raiz' %}">Contatos</a>
+						<a href="{% url 'calendario:calendario' %}">Compromissos</a>
+						<a href="{% url 'contatos:sobre' %}">Sobre</a>
+				</div>
+			</div>
+		</div>
+	
+		<div class="container-contact100">			
+			<table border="0" width="100%" id="tabela" >
+					<tr><td > </br></br> </td></tr>		
+				<tr>
+					<td >
+						<div class="header-contatos">
+							<h1 id="title">Contato Editado com Sucesso!</br></br></h1>
+							<a href="{% url 'contatos:raiz' %}" style="background-color: transparent; padding: 0">
+								<img src="{% static 'images/confirm.png' %}" height="56" width="56" style="padding-left: 10px">
+							</a>
+						</div>
+					</td>
+				</tr>
+			</table>		
+		</div>
+
+		<div class="footer">
+			<p>Desenvolvido por <a href="http://www.tiagoremedio.com.br" target="_blank">Tiago Remédio</a> @ 2018 - Curso de Django por Orlando Saraiva Jr. - Fatec Araras</p>
+		</div>
+
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+		<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+		<script>
+			$(".selection-2").select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $('#dropDownSelect1')
+			});
+		</script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+		<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'js/main.js' %}"></script>
+	</body>
+</html>

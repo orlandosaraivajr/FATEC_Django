@@ -1,0 +1,184 @@
+/* Limpar formatações padrões (podem ser interpretadas diferentemnete por browsers diferentes) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+  /* Style the search field */
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: center;
+    width: 40%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  form.example button {
+    float: center;
+    width: 10%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  
+  /* Clear floats */
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+
+
+  
+
+.header-contatos img {
+    float: center;
+    width: 64px;
+    height: 64px;
+}
+
+#header-contatos-title {
+    color: #FFFFFF;
+    size: 64px;
+}
+
+body {
+    font-size: 16px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background: #f3f3f3;
+}
+
+#navegacao {
+    background: #FFFFFF;
+    border-bottom: 1px solid #d8d8d8;
+    height: 45px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+#area {
+    width: 720px;
+    margin: 0 auto;
+}
+
+#area-principal {
+    width: 720px;
+    margin: 55px auto 10px auto;
+}
+
+#logo {
+    float: left;
+}
+
+#title {
+    padding: 20px;
+    display: inline;
+}
+
+#menu {
+    float: right;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+#postagem {
+    background: #ffffff;
+    padding: 10px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+#tabela {
+    text-align: center;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    size: 20;
+}
+
+h2 {
+    color: #333333;
+    text-align: center;
+}
+
+/* Formatação do menu */
+/* Links não vistados */
+a {
+    padding: 10px 10px;
+    text-decoration: none;
+}
+a:link {
+    color: #838383;
+}
+
+/* Links visitados */
+a:visited {
+    color: #838383;
+}
+
+/* Links hover */
+a:hover {
+    color: #FFFFFF;
+    background: #34ade5;
+}
+
+/* Links Ativos */
+a:active {
+    color: #535353;
+}
+
+
+/* Classes */
+.azul {
+    color: #34ade5;
+}
+.roxo {
+    color: #bb39f6;
+}
+
+.data-postagem {
+    font-size: 14px;
+    border-bottom: 1px solid #f4f4f4;
+    display: block;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.img-postagem {
+    float: left;
+    margin: 0 10px 5px 0;
+}
+
+.postado {
+    border-left: 5px solid #d8d8d8;
+    padding-left: 5px;
+    display: block;
+    margin-top: 10px;
+}
