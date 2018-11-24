@@ -1,0 +1,76 @@
+Sanitizar ( transformar os dados submetidos em objetos válidos ) 
+Renderizar ( Representar  o form e seus dados como inputs no html )
+
+============================================================
+
+Arquitetura dos Forms
+
+Forms
+Responsável pelo pipeline de validação
+
+Fields 
+   Valida dados da requisição e os converte para tipos python
+
+Widgets
+    Expõe os dados como controles html e sabe como obter os dados da requisição para o pipeline
+
+
+============================================================
+
+
+Bounded ( com dados ) - acessar o mecanismo de validação
+AgendaForm(request.POST)
+
+
+Unbounded ( sem dados ) - não estão conectados com dados
+AgendaForm()
+
+============================================================
+is_valid - processo de validação
+
+1) Se o método for bounded
+2) form full_clean()
+3) para cada Field que é executado
+    3.1) clean() do field
+        3.1.1) to_python
+        3.1.2) validators
+    3.2) método clean_* se existir no form
+4) Form clean()
+5) errors ou cleaned_data ( CAMPOS EXCLUSIVOS )
+
+
+============================================================
+
+from django import forms
+
+class AcountForm(forms.Form):
+    what = forms.CharField(max_length=255)
+    howmuch = forms.DecimalField(decimal_places=2)
+    when = forms.SplitDateTimeField()
+
+form = AcountForm()
+
+print(form.as_p())
+
+for field in form:
+    print(str(field))
+
+um formulário, três campos e quatro widgets
+============================================================
+
+VALID = dict(what='teste',howmuch='1.00', when_0='05/01/2018', when_1='11:12')
+
+form =  AcountForm(VALID)
+
+form.cleaned_data
+
+INVALID = dict(what='teste',howmuch='1.00')
+form =  AcountForm(INVALID)
+form.cleaned_data
+form.errors
+
+
+
+
+
+
